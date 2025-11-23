@@ -1,0 +1,1 @@
+# BotCore interface definition

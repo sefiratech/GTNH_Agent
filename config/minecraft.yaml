@@ -1,0 +1,21 @@
+# minecraft/forge/gtnh profiles (host, port, saves, etc.)
+minecraft_profiles:
+  local_sp:
+    install_root: "/home/user/.minecraft/gtnh"
+    version: "1.7.10"
+    forge_version: "10.13.4.1614"
+    gtnh_version: "2.8.1"
+    launch_command: "java -Xmx6G -jar MultiMCLauncher.jar"
+    world_name: "GrundleGangAgentDev"
+    connection:
+      mode: "singleplayer"
+
+  local_server:
+    install_root: "/opt/gtnh_server"
+    version: "1.7.10"
+    forge_version: "10.13.4.1614"
+    gtnh_version: "2.8.1"
+    connection:
+      mode: "server"
+      host: "127.0.0.1"
+      port: 25565

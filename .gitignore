@@ -1,0 +1,61 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache junk
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# pytest + coverage
+.pytest_cache/
+.coverage
+coverage.xml
+
+# IDE/editor noise
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Machine-specific configs / model paths (optional)
+*.log
+logs/
+local/
+tmp/
+
+# LM model files (these should NEVER be pushed)
+*.gguf
+*.pt
+*.bin
+models/
+models/*
+
+# Env or hardware overrides
+.env
+.env.*
+
+#LM Studio
+lmstudio/
+
+#Temporary config backups
+config/*.bak
+config/*.tmp
+
+#Local agent logs
+logs/
+
+#Wheels and build caches from editable installs
+pip-wheel-metadata/
+

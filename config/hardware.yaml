@@ -1,0 +1,21 @@
+# hardware limits (max tokens, concurrent LLM calls, etc.)
+hardware_profiles:
+
+  desktop_5070:
+    gpu_count: 1
+    gpu_memory_gb: 12 
+    cpu_cores: 8
+    ram_gb: 32
+    max_context_tokens: 32768         # depends on model + RAM
+    max_batch_size: 4                 # llama.cpp or vLLM throughput guess
+    max_concurrent_models: 1          # you only have one GPU
+    max_model_vram_gb: 12                 # whatever your 5070 actually has
+    notes: "Single RTX 5070 workstation"
+
+  server_2x3090:
+    max_context_tokens: 8192
+    max_batch_size: 8
+    max_concurrent_models: 2
+    gpu_memory_gb: 48
+    notes: "Dual 3090 test server"
+

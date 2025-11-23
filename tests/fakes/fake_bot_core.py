@@ -1,0 +1,1 @@
+# fake BotCoreImpl for tests
