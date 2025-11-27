@@ -56,3 +56,5 @@ Top-level component diagram:
              +--------------------+
 Once this spec is stable, other modules (M2–M10) can evolve independently...
 
+On CPU-only (Qwen 7B Q4), typical call latency ~45–90s for current prompts. Acceptable for offline planning; M8 should cache & reuse plans.
+
