@@ -3,6 +3,13 @@
 
 from typing import List, Optional
 
+import pytest
+
+try:
+    import llama_cpp  # type: ignore
+except ImportError:
+    pytest.skip("llama_cpp not installed; skipping LLM backend tests in CI", allow_module_level=True)
+
 from llm_stack.backend import LLMBackend
 from llm_stack.presets import RolePreset
 from llm_stack.plan_code import PlanCodeModelImpl
