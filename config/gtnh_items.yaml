@@ -1,0 +1,26 @@
+# GTNH item categories & materials
+items:
+  "gregtech:gt.metaitem.01":
+    default:
+      category: "generic"
+      tags: ["gregtech", "meta_item"]
+    variants:
+      "plate.copper":
+        category: "plate"
+        material: "copper"
+        tags: ["plate", "metal", "copper", "early-game-processing"]
+      "dust.copper":
+        category: "dust"
+        material: "copper"
+        tags: ["dust", "metal", "copper", "processing-intermediate"]
+      "circuit.lv":
+        category: "circuit"
+        tier: "lv"
+        tags: ["circuit", "lv", "tech-gate", "electronics"]
+
+  "minecraft:iron_ingot":
+    default:
+      category: "ingot"
+      material: "iron"
+      tags: ["ingot", "metal", "iron", "vanilla"]
+

@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "recipes": [
+    {
+      "id": "gt:steam_macerator_copper_ore",
+      "type": "machine", 
+      "category": "maceration",
+
+      "machine": "gregtech:steam_macerator",
+      "tier": "steam",
+      "tags": ["ore_processing", "early-game", "steam"],
+
+      "io": {
+        "inputs": [
+          {
+            "item": "gregtech:gt.blockores",
+            "variant": "copper_ore",
+            "count": 1
+          }
+        ],
+        "outputs": [
+          {
+            "item": "gregtech:gt.metaitem.01",
+            "variant": "dust.copper",
+            "count": 2
+          }
+        ],
+        "byproducts": [
+          {
+            "item": "gregtech:gt.metaitem.01",
+            "variant": "dust.small_copper",
+            "count": 1,
+            "chance": 0.1
+          }
+        ]
+      },
+
+      "cost": {
+        "duration_ticks": 400,
+        "eu_per_tick": null,
+        "steam_per_tick": 16
+      },
+
+      "conditions": {
+        "min_tier": "steam",
+        "max_tier": "lv",
+        "requires_overclocking": false
+      }
+    }
+  ]
+}
+

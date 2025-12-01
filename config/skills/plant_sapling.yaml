@@ -1,0 +1,64 @@
+#"config/skills/plant_sapling.yaml"
+
+# spec for plant_sapling skill
+name: plant_sapling
+description: >
+  Plant saplings in a safe nearby area to maintain long-term wood production.
+
+status: active
+origin: hand_authored
+version: 1
+
+tags:
+  - forestry
+  - lv_infra
+  - sustainability
+
+params:
+  sapling_item:
+    type: ItemID
+    default: minecraft:sapling
+    description: Item ID of the sapling to plant.
+  area_center:
+    type: BlockPos
+    description: Optional reference position around which to plant.
+  radius:
+    type: int
+    default: 8
+    description: Plant within this horizontal radius of the area_center.
+  max_saplings:
+    type: int
+    default: 32
+    description: Maximum saplings to plant in one invocation.
+  avoid_water:
+    type: bool
+    default: true
+    description: Avoid planting adjacent to water blocks if true.
+
+preconditions:
+  tech_states_any_of:
+    - steam_age
+    - lv
+  required_tools:
+    - basic_pathfinding
+  dimension_allowlist:
+    - overworld
+  semantic_tags_any_of:
+    - tree_farm_area
+  # Extra fields get passed through via loader.extra:
+  min_clear_radius: 3
+
+effects:
+  inventory_delta:
+    minecraft:sapling: "<= -1"
+  tech_delta: {}
+  tags:
+    - maintains_infra
+    - renewable_resource_setup
+
+metrics:
+  success_rate: null
+  avg_cost: null
+  avg_risk: null
+  last_used_at: null
+

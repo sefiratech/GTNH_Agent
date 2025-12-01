@@ -1,0 +1,51 @@
+#"config/skills/basic_crafting.yaml"
+
+name: basic_crafting
+description: >
+  Perform simple 2x2 or crafting-table recipes using inventory items.
+
+status: active
+origin: hand_authored
+version: 1
+
+tags:
+  - crafting
+  - utility
+
+params:
+  recipe_id:
+    type: string
+    description: Identifier for the recipe to craft (semantic ID, not raw JSON).
+  max_crafts:
+    type: int
+    default: 4
+    description: Maximum number of times to repeat the craft.
+  use_crafting_table:
+    type: bool
+    default: true
+    description: Whether to require a crafting table nearby.
+
+preconditions:
+  tech_states_any_of:
+    - early_game
+    - steam_age
+    - lv
+  required_tools:
+    - basic_pathfinding
+  dimension_allowlist:
+    - overworld
+  semantic_tags_any_of:
+    - crafting_area
+
+effects:
+  inventory_delta: {}
+  tech_delta: {}
+  tags:
+    - transforms_items
+
+metrics:
+  success_rate: null
+  avg_cost: null
+  avg_risk: null
+  last_used_at: null
+

@@ -1,0 +1,33 @@
+# GTNH block categories & metadata
+blocks:
+  "gregtech:gt.blockmachines":
+    default:
+      category: "gt_machine"
+      tags: ["machine", "gregtech"]
+    variants:
+      "basic_machine_lv":
+        category: "gt_machine"
+        tier: "lv"
+        tags: ["lv", "singleblock"]
+      "basic_machine_mv":
+        category: "gt_machine"
+        tier: "mv"
+        tags: ["mv", "singleblock"]
+
+  "gregtech:gt.blockores":
+    default:
+      category: "ore"
+      tags: ["ore", "overworld"]
+    variants:
+      "copper_ore":
+        material: "copper"
+        tags: ["ore", "overworld", "early-game"]
+      "iron_ore":
+        material: "iron"
+        tags: ["ore", "overworld", "early-game"]
+
+  "minecraft:log":
+    default:
+      category: "log"
+      tags: ["log", "wood"]
+

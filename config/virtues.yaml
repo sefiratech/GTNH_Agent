@@ -1,0 +1,232 @@
+# virtue lattice definitions & base weights
+version: 1
+
+sefirot_nodes:
+  purpose:
+    label: "Purpose"
+    role: "Overarching mission alignment"
+    tier: "supernal"
+    pillar: "center"
+
+  insight:
+    label: "Insight"
+    role: "Creative deviation when appropriate"
+    tier: "supernal"
+    pillar: "right"
+
+  structure:
+    label: "Structure"
+    role: "Decomposition and clarity"
+    tier: "supernal"
+    pillar: "left"
+
+  context:
+    label: "Context"
+    role: "Situational coherence and mode selection"
+    tier: "hidden"
+    pillar: "center"
+
+  generosity:
+    label: "Generosity"
+    role: "Redundancy / margin"
+    tier: "ethical"
+    pillar: "right"
+
+  discipline:
+    label: "Discipline"
+    role: "Constraints / safety / frugality"
+    tier: "ethical"
+    pillar: "left"
+
+  harmony:
+    label: "Harmony"
+    role: "Balance and aesthetic coherence"
+    tier: "ethical"
+    pillar: "center"
+
+  drive:
+    label: "Drive"
+    role: "Progress toward long-horizon goals"
+    tier: "operational"
+    pillar: "right"
+
+  technique:
+    label: "Technique"
+    role: "Execution quality and correctness"
+    tier: "operational"
+    pillar: "left"
+
+  foundation:
+    label: "Foundation"
+    role: "Infrastructure strength and stability"
+    tier: "operational"
+    pillar: "center"
+
+  manifestation:
+    label: "Manifestation"
+    role: "Realized world state and tech gains"
+    tier: "kingdom"
+    pillar: "center"
+
+edges:
+  - { from: purpose,      to: insight }
+  - { from: purpose,      to: structure }
+  - { from: insight,      to: generosity }
+  - { from: insight,      to: drive }
+  - { from: structure,    to: discipline }
+  - { from: structure,    to: technique }
+  - { from: generosity,   to: harmony }
+  - { from: discipline,   to: harmony }
+  - { from: harmony,      to: drive }
+  - { from: harmony,      to: technique }
+  - { from: drive,        to: foundation }
+  - { from: technique,    to: foundation }
+  - { from: foundation,   to: manifestation }
+  - { from: context,      to: harmony }
+  - { from: context,      to: discipline }
+  - { from: context,      to: foundation }
+
+# Features: how PlanSummary fields feed node-local raw scores
+features:
+  time_cost:
+    affects:
+      discipline:
+        direction: "lower_better"
+        weight: 0.7
+      drive:
+        direction: "lower_better"
+        weight: 0.3
+
+  resource_cost:
+    affects:
+      discipline:
+        direction: "lower_better"
+        weight: 1.0
+
+  risk_level:
+    affects:
+      discipline:
+        direction: "lower_better"
+        weight: 0.7
+      foundation:
+        direction: "lower_better"
+        weight: 0.3
+
+  infra_reuse_score:
+    affects:
+      foundation:
+        direction: "higher_better"
+        weight: 0.7
+      technique:
+        direction: "higher_better"
+        weight: 0.3
+
+  novelty_score:
+    affects:
+      insight:
+        direction: "higher_better"
+        weight: 0.8
+      technique:
+        direction: "higher_better"
+        weight: 0.2
+
+  aesthetic_score:
+    affects:
+      harmony:
+        direction: "higher_better"
+        weight: 1.0
+
+  tech_progress_score:
+    affects:
+      drive:
+        direction: "higher_better"
+        weight: 0.6
+      manifestation:
+        direction: "higher_better"
+        weight: 0.4
+
+  stability_score:
+    affects:
+      foundation:
+        direction: "higher_better"
+        weight: 1.0
+
+# NEW: derived_virtues layer
+derived_virtues:
+  patience:
+    from_nodes:
+      drive: 0.4
+      discipline: 0.4
+      harmony: 0.2
+    description: "Steady pursuit of goals without reckless shortcuts."
+
+  prudence:
+    from_nodes:
+      structure: 0.4
+      context: 0.4
+      discipline: 0.2
+    description: "Acting with foresight and situational awareness."
+
+  industriousness:
+    from_nodes:
+      drive: 0.5
+      technique: 0.3
+      foundation: 0.2
+    description: "Consistent productive effort that builds lasting systems."
+
+  restraint:
+    from_nodes:
+      discipline: 0.5
+      harmony: 0.3
+      generosity: 0.2
+    description: "Holding back when excess would harm stability or goals."
+
+contexts:
+  default:
+    description: "Fallback virtue weighting"
+    node_weights:
+      purpose:        1.0
+      insight:        0.6
+      structure:      0.8
+      context:        1.0
+      generosity:     0.6
+      discipline:     0.8
+      harmony:        1.0
+      drive:          0.7
+      technique:      0.7
+      foundation:     0.9
+      manifestation:  1.0
+    hard_constraints:
+      - id: "no_base_self_destruction"
+        description: "Reject any plan that destroys critical base infra without replacement."
+        condition_ref: "base_integrity_min"
+
+  lv_bootstrap:
+    description: "Early LV / steam grind"
+    node_weights:
+      purpose:        1.0
+      insight:        0.4
+      structure:      0.9
+      context:        1.0
+      generosity:     0.4
+      discipline:     0.9
+      harmony:        0.7
+      drive:          0.9
+      technique:      0.7
+      foundation:     0.9
+      manifestation:  1.0
+
+  stargate_megaproject:
+    description: "Late-game megastructure / aesthetic engineering"
+    node_weights:
+      purpose:        1.0
+      insight:        0.9
+      structure:      0.9
+      context:        1.0
+      generosity:     0.7
+      discipline:     0.7
+      harmony:        1.0
+      drive:          0.9
+      technique:      0.8
+      foundation:     1.0
+      manifestation:  1.0

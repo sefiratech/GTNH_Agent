@@ -1,0 +1,13 @@
+# config/skill_packs/lv_core.yaml
+name: "lv_core"
+requires_tech_state: "lv"   # or ">= lv" if you later want ranges
+tags:
+  - "core"
+  - "early_progression"
+
+skills:
+  - chop_tree
+  - plant_sapling
+  - feed_coke_ovens
+  - basic_crafting
+

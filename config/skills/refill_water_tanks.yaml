@@ -1,0 +1,53 @@
+#"config/skills/refill_water_tanks.yaml"
+
+name: refill_water_tanks
+description: >
+  Keep nearby water tanks filled for use by boilers and other machines.
+
+status: active
+origin: hand_authored
+version: 1
+
+tags:
+  - fluids
+  - infrastructure
+  - steam_age
+
+params:
+  max_tanks:
+    type: int
+    default: 4
+    description: Maximum number of tanks to maintain.
+  water_source:
+    type: string
+    default: "infinite_water"
+    description: Source of water (e.g. infinite_water, distant_pond).
+  min_fill_fraction:
+    type: float
+    default: 0.5
+    description: Minimum fill fraction before refilling a tank.
+
+preconditions:
+  tech_states_any_of:
+    - steam_age
+    - lv
+  required_tools:
+    - basic_pathfinding
+  dimension_allowlist:
+    - overworld
+  semantic_tags_any_of:
+    - water_tank_cluster
+
+effects:
+  inventory_delta: {}
+  tech_delta: {}
+  tags:
+    - maintains_infra
+    - supports_power
+
+metrics:
+  success_rate: null
+  avg_cost: null
+  avg_risk: null
+  last_used_at: null
+

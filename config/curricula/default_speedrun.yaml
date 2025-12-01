@@ -1,0 +1,93 @@
+# default speedrun curriculumid: "default_speedrun"
+name: "Default GTNH Speed Progression"
+description: "Straightforward, high-velocity progression through GTNH tech tiers."
+
+phases:
+
+  - id: "steam_bootstrap"
+    name: "Steam Bootstrap"
+    description: "Fast climb to stable early automation."
+
+    goals:
+
+      - goal_id: "feed_coke_ovens"
+        goal_text: "Stabilize coke oven throughput."
+        phase_context: "steam_bootstrap"
+        required_tech_state:
+          required_active: "steam_age"
+
+        entry_conditions:
+          tech_unlocked: ["steam_age"]
+
+        exit_conditions:
+          machines_present:
+            - type: "coke_oven"
+              min_count: 4
+
+      - goal_id: "reach_basic_steam_power"
+        goal_text: "Achieve fully running small steam boiler."
+        phase_context: "steam_bootstrap"
+        required_tech_state:
+          required_active: "steam_age"
+
+        entry_conditions: {}
+
+        exit_conditions:
+          machines_present:
+            - type: "small_boiler"
+              min_count: 1
+
+    virtue_overrides:
+      diligence: 1.2
+
+
+  - id: "lv_rush"
+    name: "Rush to LV"
+    description: "Minimal detours, maximal forward momentum."
+
+    goals:
+
+      - goal_id: "assemble_lv_machines"
+        goal_text: "Craft and place initial LV machines."
+        phase_context: "lv_rush"
+        required_tech_state:
+          required_active: "lv"
+
+        entry_conditions:
+          tech_unlocked: ["lv_age"]
+
+        exit_conditions:
+          tech_unlocked: ["mv_age"]
+
+      - goal_id: "optimize_lv_power"
+        goal_text: "Stabilize LV power storage and throughput."
+        phase_context: "lv_rush"
+        required_tech_state:
+          required_active: "lv"
+
+        entry_conditions: {}
+
+        exit_conditions:
+          machines_present:
+            - type: "lv_battery_buffer"
+              min_count: 1
+
+    virtue_overrides:
+      efficiency: 1.25
+      discipline: 1.1
+
+
+long_horizon_projects:
+  - id: "tech_climb"
+    name: "Tech Climb Meta-Track"
+    description: "Overall push across voltage tiers."
+
+    stages:
+      - id: "steam_to_lv"
+        description: "Move from steam into full LV."
+        depends_on_phases: ["steam_bootstrap"]
+
+      - id: "lv_to_mv"
+        description: "Accelerate from LV to MV."
+        depends_on_phases: ["lv_rush"]
+

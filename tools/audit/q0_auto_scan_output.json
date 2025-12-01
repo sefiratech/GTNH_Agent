@@ -1,0 +1,1391 @@
+{
+  "findings": [
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M8",
+        "kind": "function",
+        "name": "propose_plan",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop planning step"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M8",
+        "kind": "function",
+        "name": "evaluate_plan",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop evaluation step"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M8",
+        "kind": "function",
+        "name": "maybe_retry_plan",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Retry gate based on policy"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M8",
+        "kind": "function",
+        "name": "evaluate_outcome",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "End-of-episode evaluation"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M8",
+        "kind": "class",
+        "name": "PlanAttempt",
+        "search_roots": [
+          "src/agent_loop",
+          "src/spec"
+        ],
+        "file_glob": "*.py",
+        "note": "Dataclass for a single plan attempt"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M8",
+        "kind": "class",
+        "name": "PlanEvaluation",
+        "search_roots": [
+          "src/agent_loop",
+          "src/spec"
+        ],
+        "file_glob": "*.py",
+        "note": "Dataclass for plan evaluation result"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M8",
+        "kind": "class",
+        "name": "RetryPolicy",
+        "search_roots": [
+          "src/agent_loop",
+          "src/spec"
+        ],
+        "file_glob": "*.py",
+        "note": "Dataclass for retry policy"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M4",
+        "kind": "function",
+        "name": "evaluate_plan_with_virtues",
+        "search_roots": [
+          "src/virtues",
+          "src/integration"
+        ],
+        "file_glob": "*.py",
+        "note": "Virtue-aware plan evaluation"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M2",
+        "kind": "string",
+        "name": "failure_type",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Error/Critic response field"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M2",
+        "kind": "string",
+        "name": "severity",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Error/Critic response field"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M2",
+        "kind": "string",
+        "name": "fix_suggestions",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Error/Critic response field"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M9",
+        "kind": "event",
+        "name": "PlanEvaluated",
+        "search_roots": [
+          "src/monitoring"
+        ],
+        "file_glob": "*.py",
+        "note": "Monitoring event"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M9",
+        "kind": "event",
+        "name": "PlanRetried",
+        "search_roots": [
+          "src/monitoring"
+        ],
+        "file_glob": "*.py",
+        "note": "Monitoring event"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 1,
+        "quality_name": "Self-evaluation + Retry Loop",
+        "module": "M9",
+        "kind": "event",
+        "name": "PlanAbandoned",
+        "search_roots": [
+          "src/monitoring"
+        ],
+        "file_glob": "*.py",
+        "note": "Monitoring event"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "config_key",
+        "name": "version",
+        "search_roots": [
+          "config/skills"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Skill version field in YAML"
+      },
+      "present": true,
+      "locations": [
+        "config/skills/plant_sapling.yaml",
+        "config/skills/maintain_coke_ovens.yaml",
+        "config/skills/feed_coke_ovens.yaml",
+        "config/skills/feed_steam_boiler.yaml",
+        "config/skills/refill_water_tanks.yaml",
+        "config/skills/chop_tree.yaml",
+        "config/skills/basic_crafting.yaml"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "config_key",
+        "name": "status",
+        "search_roots": [
+          "config/skills"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Skill status field in YAML"
+      },
+      "present": true,
+      "locations": [
+        "config/skills/plant_sapling.yaml",
+        "config/skills/maintain_coke_ovens.yaml",
+        "config/skills/feed_coke_ovens.yaml",
+        "config/skills/feed_steam_boiler.yaml",
+        "config/skills/refill_water_tanks.yaml",
+        "config/skills/chop_tree.yaml",
+        "config/skills/basic_crafting.yaml"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "config_key",
+        "name": "origin",
+        "search_roots": [
+          "config/skills"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Skill origin field in YAML"
+      },
+      "present": true,
+      "locations": [
+        "config/skills/plant_sapling.yaml",
+        "config/skills/maintain_coke_ovens.yaml",
+        "config/skills/feed_coke_ovens.yaml",
+        "config/skills/feed_steam_boiler.yaml",
+        "config/skills/refill_water_tanks.yaml",
+        "config/skills/chop_tree.yaml",
+        "config/skills/basic_crafting.yaml"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "config_key",
+        "name": "metrics",
+        "search_roots": [
+          "config/skills"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Metrics struct in skill YAML"
+      },
+      "present": true,
+      "locations": [
+        "config/skills/plant_sapling.yaml",
+        "config/skills/maintain_coke_ovens.yaml",
+        "config/skills/feed_coke_ovens.yaml",
+        "config/skills/feed_steam_boiler.yaml",
+        "config/skills/refill_water_tanks.yaml",
+        "config/skills/chop_tree.yaml",
+        "config/skills/basic_crafting.yaml"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "function",
+        "name": "get_latest_skill",
+        "search_roots": [
+          "src/skills"
+        ],
+        "file_glob": "*.py",
+        "note": "Registry API for latest skill version"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "function",
+        "name": "list_skill_versions",
+        "search_roots": [
+          "src/skills"
+        ],
+        "file_glob": "*.py",
+        "note": "Registry API for all skill versions"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "function",
+        "name": "register_skill_candidate",
+        "search_roots": [
+          "src/skills"
+        ],
+        "file_glob": "*.py",
+        "note": "Registry API to register candidate skills"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M5",
+        "kind": "function",
+        "name": "mark_skill_version_deprecated",
+        "search_roots": [
+          "src/skills"
+        ],
+        "file_glob": "*.py",
+        "note": "Registry API for deprecating versions"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M10",
+        "kind": "string",
+        "name": "SkillLearningManager",
+        "search_roots": [
+          "src/learning"
+        ],
+        "file_glob": "*.py",
+        "note": "Learning manager for skills"
+      },
+      "present": true,
+      "locations": [
+        "src/learning/manager.py",
+        "src/learning/curriculum_hooks.py"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M10",
+        "kind": "string",
+        "name": "create_candidate_skill",
+        "search_roots": [
+          "src/learning"
+        ],
+        "file_glob": "*.py",
+        "note": "Any method that creates candidate skills"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 2,
+        "quality_name": "Dynamic Skill Evolution & Versioning",
+        "module": "M10",
+        "kind": "string",
+        "name": "update_skill_metrics",
+        "search_roots": [
+          "src/learning"
+        ],
+        "file_glob": "*.py",
+        "note": "Any method that updates metrics"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "spec/*",
+        "kind": "class",
+        "name": "AgentGoal",
+        "search_roots": [
+          "src/spec"
+        ],
+        "file_glob": "*.py",
+        "note": "Spec: Agent goal type"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "spec/*",
+        "kind": "class",
+        "name": "TaskPlan",
+        "search_roots": [
+          "src/spec"
+        ],
+        "file_glob": "*.py",
+        "note": "Spec: Task-level plan"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "spec/*",
+        "kind": "class",
+        "name": "SkillInvocation",
+        "search_roots": [
+          "src/spec"
+        ],
+        "file_glob": "*.py",
+        "note": "Spec: Skill invocation entry"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "M2",
+        "kind": "function",
+        "name": "plan_goal",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Planner mode: goal \u2192 tasks"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "M2",
+        "kind": "function",
+        "name": "plan_task",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Planner mode: task \u2192 skills"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "M8",
+        "kind": "string",
+        "name": "GoalSelection",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop state name"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "M8",
+        "kind": "string",
+        "name": "TaskPlanning",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop state name"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "M8",
+        "kind": "string",
+        "name": "SkillResolution",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop state name"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "M8",
+        "kind": "string",
+        "name": "Execution",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop state name"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 3,
+        "quality_name": "Hierarchical Planning",
+        "module": "M8",
+        "kind": "string",
+        "name": "Review",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop state name"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M10",
+        "kind": "config_key",
+        "name": "problem_signature",
+        "search_roots": [
+          "src/learning",
+          "tests"
+        ],
+        "file_glob": "*.py",
+        "note": "Experience field"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M10",
+        "kind": "config_key",
+        "name": "final_outcome",
+        "search_roots": [
+          "src/learning",
+          "tests"
+        ],
+        "file_glob": "*.py",
+        "note": "Experience field"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M10",
+        "kind": "config_key",
+        "name": "virtue_scores",
+        "search_roots": [
+          "src/learning",
+          "tests"
+        ],
+        "file_glob": "*.py",
+        "note": "Experience field"
+      },
+      "present": true,
+      "locations": [
+        "src/learning/synthesizer.py",
+        "src/learning/evaluator.py",
+        "src/learning/schema.py",
+        "src/learning/buffer.py",
+        "tests/test_skill_learning_manager.py",
+        "tests/test_observation_critic_encoding.py",
+        "tests/test_runtime_m6_m7_smoke.py",
+        "tests/test_evaluator.py",
+        "tests/test_experience_buffer.py",
+        "tests/test_synthesizer.py",
+        "tests/test_architecture_integration.py",
+        "tests/test_observation_pipeline.py"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M10",
+        "kind": "config_key",
+        "name": "lessons",
+        "search_roots": [
+          "src/learning",
+          "tests"
+        ],
+        "file_glob": "*.py",
+        "note": "Experience field"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M10",
+        "kind": "function",
+        "name": "append_experience",
+        "search_roots": [
+          "src/learning"
+        ],
+        "file_glob": "*.py",
+        "note": "Replay / experience buffer append"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M10",
+        "kind": "function",
+        "name": "query_similar_experiences",
+        "search_roots": [
+          "src/learning"
+        ],
+        "file_glob": "*.py",
+        "note": "Replay query function"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M8",
+        "kind": "function",
+        "name": "build_experience_from_episode",
+        "search_roots": [
+          "src/agent_loop",
+          "src/integration"
+        ],
+        "file_glob": "*.py",
+        "note": "Mapper from episode \u2192 experience"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M8",
+        "kind": "string",
+        "name": "append_experience",
+        "search_roots": [
+          "src/agent_loop",
+          "src/integration"
+        ],
+        "file_glob": "*.py",
+        "note": "Call site into buffer"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 4,
+        "quality_name": "Experience Memory",
+        "module": "M2",
+        "kind": "function",
+        "name": "summarize_episode_for_memory",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Scribe helper for memory"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M11",
+        "kind": "class",
+        "name": "CurriculumConfig",
+        "search_roots": [
+          "src/curriculum"
+        ],
+        "file_glob": "*.py",
+        "note": "Core curriculum schema"
+      },
+      "present": true,
+      "locations": [
+        "src/curriculum/schema.py"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M11",
+        "kind": "class",
+        "name": "PhaseConfig",
+        "search_roots": [
+          "src/curriculum"
+        ],
+        "file_glob": "*.py",
+        "note": "Per-phase config"
+      },
+      "present": true,
+      "locations": [
+        "src/curriculum/schema.py"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M11",
+        "kind": "function",
+        "name": "view",
+        "search_roots": [
+          "src/curriculum"
+        ],
+        "file_glob": "*.py",
+        "note": "Curriculum.view(...) API"
+      },
+      "present": true,
+      "locations": [
+        "src/curriculum/engine.py"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M11",
+        "kind": "config_key",
+        "name": "required_tech_state",
+        "search_roots": [
+          "config/curricula",
+          "src/curriculum"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Tech state requirement"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M11",
+        "kind": "config_key",
+        "name": "preferred_virtue_context",
+        "search_roots": [
+          "config/curricula",
+          "src/curriculum"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Virtue context key"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M11",
+        "kind": "config_key",
+        "name": "entry_conditions",
+        "search_roots": [
+          "config/curricula",
+          "src/curriculum"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Phase entry conditions"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M11",
+        "kind": "config_key",
+        "name": "exit_conditions",
+        "search_roots": [
+          "config/curricula",
+          "src/curriculum"
+        ],
+        "file_glob": "*.yaml",
+        "note": "Phase exit conditions"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 5,
+        "quality_name": "Curriculum-driven Goal Selection",
+        "module": "M8",
+        "kind": "string",
+        "name": "curriculum.next_goal",
+        "search_roots": [
+          "src/agent_loop",
+          "src/curriculum"
+        ],
+        "file_glob": "*.py",
+        "note": "Curriculum is goal source"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "config_key",
+        "name": "planner",
+        "search_roots": [
+          "config"
+        ],
+        "file_glob": "llm_roles.yaml",
+        "note": "Planner role definition"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "config_key",
+        "name": "critic",
+        "search_roots": [
+          "config"
+        ],
+        "file_glob": "llm_roles.yaml",
+        "note": "Critic role definition"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "config_key",
+        "name": "error_model",
+        "search_roots": [
+          "config"
+        ],
+        "file_glob": "llm_roles.yaml",
+        "note": "Error model role"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "config_key",
+        "name": "scribe",
+        "search_roots": [
+          "config"
+        ],
+        "file_glob": "llm_roles.yaml",
+        "note": "Scribe role"
+      },
+      "present": true,
+      "locations": [
+        "config/llm_roles.yaml"
+      ]
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "function",
+        "name": "call_planner",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Role-specific planner call"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "function",
+        "name": "call_critic",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Role-specific critic call"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "function",
+        "name": "call_error_model",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Role-specific error model call"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "M2",
+        "kind": "function",
+        "name": "call_scribe",
+        "search_roots": [
+          "src/llm_stack"
+        ],
+        "file_glob": "*.py",
+        "note": "Role-specific scribe call"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 6,
+        "quality_name": "Structured LLM-role Separation",
+        "module": "runtime/*",
+        "kind": "string",
+        "name": "llm_stack.call(",
+        "search_roots": [
+          "src"
+        ],
+        "file_glob": "*.py",
+        "note": "Generic LLM calls (should be phased out)"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 7,
+        "quality_name": "Lightweight Predictive World-model",
+        "module": "M3",
+        "kind": "class",
+        "name": "WorldModel",
+        "search_roots": [
+          "src/world",
+          "src/semantics"
+        ],
+        "file_glob": "*.py",
+        "note": "World model main class"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 7,
+        "quality_name": "Lightweight Predictive World-model",
+        "module": "M3",
+        "kind": "function",
+        "name": "simulate_tech_progress",
+        "search_roots": [
+          "src/world",
+          "src/semantics"
+        ],
+        "file_glob": "*.py",
+        "note": "Tech progress simulation"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 7,
+        "quality_name": "Lightweight Predictive World-model",
+        "module": "M3",
+        "kind": "function",
+        "name": "estimate_infra_effect",
+        "search_roots": [
+          "src/world",
+          "src/semantics"
+        ],
+        "file_glob": "*.py",
+        "note": "Infra effect estimation"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 7,
+        "quality_name": "Lightweight Predictive World-model",
+        "module": "M3",
+        "kind": "function",
+        "name": "estimate_resource_trajectory",
+        "search_roots": [
+          "src/world",
+          "src/semantics"
+        ],
+        "file_glob": "*.py",
+        "note": "Resource trajectory estimation"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 7,
+        "quality_name": "Lightweight Predictive World-model",
+        "module": "M8",
+        "kind": "string",
+        "name": "simulate_tech_progress",
+        "search_roots": [
+          "src/agent_loop"
+        ],
+        "file_glob": "*.py",
+        "note": "Agent loop using world-model"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 7,
+        "quality_name": "Lightweight Predictive World-model",
+        "module": "M4",
+        "kind": "string",
+        "name": "estimate_infra_effect",
+        "search_roots": [
+          "src/virtues"
+        ],
+        "file_glob": "*.py",
+        "note": "Virtue scoring using world-model"
+      },
+      "present": false,
+      "locations": []
+    },
+    {
+      "expectation": {
+        "quality_id": 7,
+        "quality_name": "Lightweight Predictive World-model",
+        "module": "M11",
+        "kind": "string",
+        "name": "estimate_resource_trajectory",
+        "search_roots": [
+          "src/curriculum"
+        ],
+        "file_glob": "*.py",
+        "note": "Curriculum using world-model"
+      },
+      "present": false,
+      "locations": []
+    }
+  ],
+  "aggregate": {
+    "1": {
+      "M8": {
+        "present": 0,
+        "total": 7,
+        "details": [
+          "function 'propose_plan' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop planning step",
+          "function 'evaluate_plan' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop evaluation step",
+          "function 'maybe_retry_plan' MISSING (expected in ['src/agent_loop']) \u2013 Retry gate based on policy",
+          "function 'evaluate_outcome' MISSING (expected in ['src/agent_loop']) \u2013 End-of-episode evaluation",
+          "class 'PlanAttempt' MISSING (expected in ['src/agent_loop', 'src/spec']) \u2013 Dataclass for a single plan attempt",
+          "class 'PlanEvaluation' MISSING (expected in ['src/agent_loop', 'src/spec']) \u2013 Dataclass for plan evaluation result",
+          "class 'RetryPolicy' MISSING (expected in ['src/agent_loop', 'src/spec']) \u2013 Dataclass for retry policy"
+        ],
+        "status": "missing"
+      },
+      "M4": {
+        "present": 0,
+        "total": 1,
+        "details": [
+          "function 'evaluate_plan_with_virtues' MISSING (expected in ['src/virtues', 'src/integration']) \u2013 Virtue-aware plan evaluation"
+        ],
+        "status": "missing"
+      },
+      "M2": {
+        "present": 0,
+        "total": 3,
+        "details": [
+          "string 'failure_type' MISSING (expected in ['src/llm_stack']) \u2013 Error/Critic response field",
+          "string 'severity' MISSING (expected in ['src/llm_stack']) \u2013 Error/Critic response field",
+          "string 'fix_suggestions' MISSING (expected in ['src/llm_stack']) \u2013 Error/Critic response field"
+        ],
+        "status": "missing"
+      },
+      "M9": {
+        "present": 0,
+        "total": 3,
+        "details": [
+          "event 'PlanEvaluated' MISSING (expected in ['src/monitoring']) \u2013 Monitoring event",
+          "event 'PlanRetried' MISSING (expected in ['src/monitoring']) \u2013 Monitoring event",
+          "event 'PlanAbandoned' MISSING (expected in ['src/monitoring']) \u2013 Monitoring event"
+        ],
+        "status": "missing"
+      }
+    },
+    "2": {
+      "M5": {
+        "present": 4,
+        "total": 8,
+        "details": [
+          "config_key 'version' FOUND in config/skills/plant_sapling.yaml, config/skills/maintain_coke_ovens.yaml, config/skills/feed_coke_ovens.yaml \u2013 Skill version field in YAML",
+          "config_key 'status' FOUND in config/skills/plant_sapling.yaml, config/skills/maintain_coke_ovens.yaml, config/skills/feed_coke_ovens.yaml \u2013 Skill status field in YAML",
+          "config_key 'origin' FOUND in config/skills/plant_sapling.yaml, config/skills/maintain_coke_ovens.yaml, config/skills/feed_coke_ovens.yaml \u2013 Skill origin field in YAML",
+          "config_key 'metrics' FOUND in config/skills/plant_sapling.yaml, config/skills/maintain_coke_ovens.yaml, config/skills/feed_coke_ovens.yaml \u2013 Metrics struct in skill YAML",
+          "function 'get_latest_skill' MISSING (expected in ['src/skills']) \u2013 Registry API for latest skill version",
+          "function 'list_skill_versions' MISSING (expected in ['src/skills']) \u2013 Registry API for all skill versions",
+          "function 'register_skill_candidate' MISSING (expected in ['src/skills']) \u2013 Registry API to register candidate skills",
+          "function 'mark_skill_version_deprecated' MISSING (expected in ['src/skills']) \u2013 Registry API for deprecating versions"
+        ],
+        "status": "partial"
+      },
+      "M10": {
+        "present": 1,
+        "total": 3,
+        "details": [
+          "string 'SkillLearningManager' FOUND in src/learning/manager.py, src/learning/curriculum_hooks.py \u2013 Learning manager for skills",
+          "string 'create_candidate_skill' MISSING (expected in ['src/learning']) \u2013 Any method that creates candidate skills",
+          "string 'update_skill_metrics' MISSING (expected in ['src/learning']) \u2013 Any method that updates metrics"
+        ],
+        "status": "stub"
+      }
+    },
+    "3": {
+      "spec/*": {
+        "present": 0,
+        "total": 3,
+        "details": [
+          "class 'AgentGoal' MISSING (expected in ['src/spec']) \u2013 Spec: Agent goal type",
+          "class 'TaskPlan' MISSING (expected in ['src/spec']) \u2013 Spec: Task-level plan",
+          "class 'SkillInvocation' MISSING (expected in ['src/spec']) \u2013 Spec: Skill invocation entry"
+        ],
+        "status": "missing"
+      },
+      "M2": {
+        "present": 0,
+        "total": 2,
+        "details": [
+          "function 'plan_goal' MISSING (expected in ['src/llm_stack']) \u2013 Planner mode: goal \u2192 tasks",
+          "function 'plan_task' MISSING (expected in ['src/llm_stack']) \u2013 Planner mode: task \u2192 skills"
+        ],
+        "status": "missing"
+      },
+      "M8": {
+        "present": 0,
+        "total": 5,
+        "details": [
+          "string 'GoalSelection' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop state name",
+          "string 'TaskPlanning' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop state name",
+          "string 'SkillResolution' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop state name",
+          "string 'Execution' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop state name",
+          "string 'Review' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop state name"
+        ],
+        "status": "missing"
+      }
+    },
+    "4": {
+      "M10": {
+        "present": 1,
+        "total": 6,
+        "details": [
+          "config_key 'problem_signature' MISSING (expected in ['src/learning', 'tests']) \u2013 Experience field",
+          "config_key 'final_outcome' MISSING (expected in ['src/learning', 'tests']) \u2013 Experience field",
+          "config_key 'virtue_scores' FOUND in src/learning/synthesizer.py, src/learning/evaluator.py, src/learning/schema.py \u2013 Experience field",
+          "config_key 'lessons' MISSING (expected in ['src/learning', 'tests']) \u2013 Experience field",
+          "function 'append_experience' MISSING (expected in ['src/learning']) \u2013 Replay / experience buffer append",
+          "function 'query_similar_experiences' MISSING (expected in ['src/learning']) \u2013 Replay query function"
+        ],
+        "status": "stub"
+      },
+      "M8": {
+        "present": 0,
+        "total": 2,
+        "details": [
+          "function 'build_experience_from_episode' MISSING (expected in ['src/agent_loop', 'src/integration']) \u2013 Mapper from episode \u2192 experience",
+          "string 'append_experience' MISSING (expected in ['src/agent_loop', 'src/integration']) \u2013 Call site into buffer"
+        ],
+        "status": "missing"
+      },
+      "M2": {
+        "present": 0,
+        "total": 1,
+        "details": [
+          "function 'summarize_episode_for_memory' MISSING (expected in ['src/llm_stack']) \u2013 Scribe helper for memory"
+        ],
+        "status": "missing"
+      }
+    },
+    "5": {
+      "M11": {
+        "present": 3,
+        "total": 7,
+        "details": [
+          "class 'CurriculumConfig' FOUND in src/curriculum/schema.py \u2013 Core curriculum schema",
+          "class 'PhaseConfig' FOUND in src/curriculum/schema.py \u2013 Per-phase config",
+          "function 'view' FOUND in src/curriculum/engine.py \u2013 Curriculum.view(...) API",
+          "config_key 'required_tech_state' MISSING (expected in ['config/curricula', 'src/curriculum']) \u2013 Tech state requirement",
+          "config_key 'preferred_virtue_context' MISSING (expected in ['config/curricula', 'src/curriculum']) \u2013 Virtue context key",
+          "config_key 'entry_conditions' MISSING (expected in ['config/curricula', 'src/curriculum']) \u2013 Phase entry conditions",
+          "config_key 'exit_conditions' MISSING (expected in ['config/curricula', 'src/curriculum']) \u2013 Phase exit conditions"
+        ],
+        "status": "partial"
+      },
+      "M8": {
+        "present": 0,
+        "total": 1,
+        "details": [
+          "string 'curriculum.next_goal' MISSING (expected in ['src/agent_loop', 'src/curriculum']) \u2013 Curriculum is goal source"
+        ],
+        "status": "missing"
+      }
+    },
+    "6": {
+      "M2": {
+        "present": 1,
+        "total": 8,
+        "details": [
+          "config_key 'planner' MISSING (expected in ['config']) \u2013 Planner role definition",
+          "config_key 'critic' MISSING (expected in ['config']) \u2013 Critic role definition",
+          "config_key 'error_model' MISSING (expected in ['config']) \u2013 Error model role",
+          "config_key 'scribe' FOUND in config/llm_roles.yaml \u2013 Scribe role",
+          "function 'call_planner' MISSING (expected in ['src/llm_stack']) \u2013 Role-specific planner call",
+          "function 'call_critic' MISSING (expected in ['src/llm_stack']) \u2013 Role-specific critic call",
+          "function 'call_error_model' MISSING (expected in ['src/llm_stack']) \u2013 Role-specific error model call",
+          "function 'call_scribe' MISSING (expected in ['src/llm_stack']) \u2013 Role-specific scribe call"
+        ],
+        "status": "stub"
+      },
+      "runtime/*": {
+        "present": 0,
+        "total": 1,
+        "details": [
+          "string 'llm_stack.call(' MISSING (expected in ['src']) \u2013 Generic LLM calls (should be phased out)"
+        ],
+        "status": "missing"
+      }
+    },
+    "7": {
+      "M3": {
+        "present": 0,
+        "total": 4,
+        "details": [
+          "class 'WorldModel' MISSING (expected in ['src/world', 'src/semantics']) \u2013 World model main class",
+          "function 'simulate_tech_progress' MISSING (expected in ['src/world', 'src/semantics']) \u2013 Tech progress simulation",
+          "function 'estimate_infra_effect' MISSING (expected in ['src/world', 'src/semantics']) \u2013 Infra effect estimation",
+          "function 'estimate_resource_trajectory' MISSING (expected in ['src/world', 'src/semantics']) \u2013 Resource trajectory estimation"
+        ],
+        "status": "missing"
+      },
+      "M8": {
+        "present": 0,
+        "total": 1,
+        "details": [
+          "string 'simulate_tech_progress' MISSING (expected in ['src/agent_loop']) \u2013 Agent loop using world-model"
+        ],
+        "status": "missing"
+      },
+      "M4": {
+        "present": 0,
+        "total": 1,
+        "details": [
+          "string 'estimate_infra_effect' MISSING (expected in ['src/virtues']) \u2013 Virtue scoring using world-model"
+        ],
+        "status": "missing"
+      },
+      "M11": {
+        "present": 0,
+        "total": 1,
+        "details": [
+          "string 'estimate_resource_trajectory' MISSING (expected in ['src/curriculum']) \u2013 Curriculum using world-model"
+        ],
+        "status": "missing"
+      }
+    }
+  }
+}

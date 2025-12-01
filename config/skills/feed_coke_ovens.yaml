@@ -1,0 +1,62 @@
+#"config/skills/feed_coke_ovens.yaml"
+
+# spec for feed_coke_ovens skill
+name: feed_coke_ovens
+description: >
+  Maintain a bank of coke ovens by feeding input items and collecting outputs.
+  Focused on early steam/LV infrastructure support for boilers and steel.
+
+status: active
+origin: hand_authored
+version: 1
+
+tags:
+  - automation
+  - coke_oven
+  - lv_infra
+
+params:
+  location_hint:
+    type: BlockPos
+    description: Reference position near the coke oven array (e.g. controller block).
+  input_item:
+    type: ItemID
+    default: minecraft:coal
+    description: Item to feed into coke ovens.
+  max_ovens:
+    type: int
+    default: 16
+    description: Maximum number of coke ovens to service in one area.
+  pull_outputs:
+    type: bool
+    default: true
+    description: Whether to collect coke and creosote outputs.
+
+preconditions:
+  tech_states_any_of:
+    - steam_age
+    - lv
+  required_tools:
+    - basic_pathfinding
+  dimension_allowlist:
+    - overworld
+  semantic_tags_any_of:
+    - coke_oven
+  # anything extra is just passed through in loader.extra
+  min_oven_count: 4
+
+effects:
+  inventory_delta:
+    minecraft:coal_coke: ">= +1"
+    gtnh:creosote_bucket: ">= 0"
+  tech_delta: {}
+  tags:
+    - maintains_infra
+    - resource_processing
+
+metrics:
+  success_rate: null
+  avg_cost: null
+  avg_risk: null
+  last_used_at: null
+

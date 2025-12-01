@@ -1,0 +1,52 @@
+#"config/skills/feed_steam_boiler.yaml"
+
+name: feed_steam_boiler
+description: >
+  Feed solid fuel and water into a steam boiler to maintain pressure and output.
+
+status: active
+origin: hand_authored
+version: 1
+
+tags:
+  - boiler
+  - power
+  - steam_age
+
+params:
+  fuel_item:
+    type: ItemID
+    default: minecraft:coal
+    description: Fuel item to feed into the boiler.
+  water_source:
+    type: string
+    default: "adjacent_tank"
+    description: Where to pull water from (e.g. adjacent_tank, bucket_inventory).
+  target_pressure:
+    type: float
+    default: 0.8
+    description: Desired fraction of max pressure to maintain.
+
+preconditions:
+  tech_states_any_of:
+    - steam_age
+    - lv
+  required_tools:
+    - basic_pathfinding
+  dimension_allowlist:
+    - overworld
+  semantic_tags_any_of:
+    - steam_boiler
+
+effects:
+  inventory_delta: {}
+  tech_delta: {}
+  tags:
+    - maintains_power
+
+metrics:
+  success_rate: null
+  avg_cost: null
+  avg_risk: null
+  last_used_at: null
+

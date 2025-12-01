@@ -1,0 +1,85 @@
+# tech states & dependencies DAG
+tech_states:
+  stone_age:
+    description: "No machines, stone tools only."
+    tags: ["early-game", "no-tech"]
+    prerequisites: []
+    unlocks: ["steam_age"]
+
+    # Conditions used by infer_tech_state() to decide if we're here.
+    # For very early states this can stay mostly empty / symbolic.
+    requirements:
+      min_items: []        # list of item IDs that strongly indicate this state
+      min_machines: []     # list of machine IDs (none yet)
+      flags: ["no_machines"]
+
+    # Optional: hints for curriculum / UI, not strictly required
+    recommended_goals:
+      - "craft_bronze_pickaxe"
+      - "collect_basic_ores"
+
+    # Optional: link into virtues.yaml profile name
+    virtue_profile: "stone_age_default"
+
+  steam_age:
+    description: "Basic steam machines, bronze tools."
+    tags: ["steam", "bronze", "pre-electric"]
+    prerequisites: ["stone_age"]
+    unlocks: ["lv_electric"]
+
+    requirements:
+      min_items:
+        - "gregtech:gt.metaitem.01:circuit.primitive"
+      min_machines:
+        - "gregtech:steam_macerator"
+        - "gregtech:steam_furnace"
+      flags:
+        - "has_steam_power"
+
+    recommended_goals:
+      - "automate_coke_ovens"
+      - "set_up_basic_steam_power"
+
+    virtue_profile: "steam_age_default"
+
+  lv_electric:
+    description: "LV power, LV machines, basic circuits."
+    tags: ["lv", "electric", "early-industrial"]
+    prerequisites: ["steam_age"]
+    unlocks: ["mv_electric"]
+
+    requirements:
+      min_items:
+        - "gregtech:gt.metaitem.01:circuit.lv"
+      min_machines:
+        - "gregtech:lv_macerator"
+        - "gregtech:lv_electric_furnace"
+      flags:
+        - "has_lv_power"
+
+    recommended_goals:
+      - "automate_ore_processing_lv"
+      - "establish_stable_lv_power"
+
+    virtue_profile: "lv_default"
+
+  mv_electric:
+    description: "MV machines, better circuits."
+    tags: ["mv", "electric", "mid-game"]
+    prerequisites: ["lv_electric"]
+    unlocks: []
+
+    requirements:
+      min_items:
+        - "gregtech:gt.metaitem.01:circuit.mv"
+      min_machines:
+        - "gregtech:mv_macerator"
+      flags:
+        - "has_mv_power"
+
+    recommended_goals:
+      - "scale_ore_processing"
+      - "begin_mv_autocrafting"
+
+    virtue_profile: "mv_default"
+

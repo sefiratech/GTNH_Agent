@@ -1,0 +1,121 @@
+# LLM Role Boundary Spec (Q1)
+
+## Planner
+responsibilities:
+  - Turn a high-level AgentGoal + world summary into a TaskPlan (tasks).
+  - Decompose goal into ordered, human-readable tasks.
+inputs:
+  - AgentGoal (id, text, phase, source)
+  - WorldSummary:
+      observation: serialized world view for planning
+      skills: skill metadata (names + descriptions)
+      constraints: planner constraints (safety, tech limits, etc.)
+outputs:
+  - GoalPlanJSON / TaskPlan (ordered list of tasks + notes)
+must_not_do:
+  - Emit low-level skill sequences.
+  - Inspect execution traces or failures.
+  - Call ErrorModel or Scribe.
+  - Touch code generation.
+
+## PlanCodeModel
+responsibilities:
+  - Convert a Task or Goal into low-level skill steps.
+  - Emit PlannerPlanJSON (skill-level steps with params).
+  - Optionally generate Python implementations for skills from specs + examples.
+inputs:
+  - Observation + AgentGoal + skill descriptions + constraints (for planning).
+  - Skill spec + example traces (for codegen).
+outputs:
+  - PlannerPlanJSON:
+      steps: list of {skill, params, expected_outcome?}
+      notes: optional explanations
+      raw_text: raw LLM output
+  - Skill implementation code (Python string) for codegen.
+must_not_do:
+  - Analyze failures or execution traces.
+  - Classify errors or suggest retry policies.
+  - Call ErrorModel, CriticModel, or Scribe.
+  - Decide high-level curriculum goals.
+
+## CriticModel
+responsibilities:
+  - Evaluate plans **before execution**.
+  - Flag unsafe, wasteful, or incoherent plans.
+  - Suggest modifications or alternatives.
+inputs:
+  - Observation (pre-execution).
+  - Plan JSON (goal plan or skill plan).
+  - Virtue scores / context (optional).
+outputs:
+  - CriticResponse:
+      ok: boolean
+      critique: text
+      suggested_modifications: structured hints
+      failure_type: optional short label
+      severity: optional severity bucket
+      fix_suggestions: list of change hints
+must_not_do:
+  - Look at actual execution failures.
+  - Operate on postmortem traces.
+  - Generate code.
+  - Select high-level goals or tasks.
+current_status: "stub-or-partial-implementation-ok"
+
+## ErrorModel
+responsibilities:
+  - Analyze **failed** execution traces.
+  - Classify failure types and severity.
+  - Recommend recovery strategies and whether to retry.
+inputs:
+  - Encoded PlanTrace / ErrorContext (episode execution, failures, metadata).
+outputs:
+  - ErrorModelResponse:
+      classification: short label
+      summary: human-readable explanation
+      suggested_fix: structured actions or constraints
+      retry_advised: bool
+      failure_type: optional label
+      severity: optional severity bucket
+      fix_suggestions: list of fix hints
+must_not_do:
+  - Plan new tasks or skill sequences.
+  - Evaluate plans that have never executed.
+  - Generate code or skills.
+  - Modify curriculum or goal selection directly.
+
+## Scribe
+responsibilities:
+  - Summarize traces and experiences for humans and memory.
+  - Compress long logs into reusable summaries.
+  - Suggest tags/keywords for storage and retrieval.
+inputs:
+  - TraceSummaryRequest:
+      plan_trace or episode summary
+      optional extra metadata
+outputs:
+  - TraceSummaryResponse (or similar):
+      summary: compressed narrative
+      keywords: list of tags
+      suggested_tags: semantic labels
+      raw_text: raw model output
+must_not_do:
+  - Alter execution behavior or retry logic.
+  - Generate or modify plans.
+  - Perform error classification or retry decisions.
+  - Directly manipulate the curriculum or tech graph.
+
+## Scheduling Rules
+1. Planner runs first and produces:
+   - Goal → TaskPlan
+2. CriticModel runs on the planner output to:
+   - Evaluate and possibly reject / adjust the plan **before** execution.
+3. PlanCodeModel transforms:
+   - Tasks → low-level PlannerPlanJSON (skill steps) and/or skill code.
+4. ErrorModel only runs after:
+   - Execution has produced failures (PlanTrace with non-success steps).
+   - It never runs before first execution.
+5. Scribe runs at:
+   - Episode end (or checkpoint) to summarize traces / experiences for logs,
+     memory, and curriculum/learning context.
+

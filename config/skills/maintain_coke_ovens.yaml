@@ -1,0 +1,52 @@
+#"config/skills/maintain_coke_ovens.yaml"
+
+name: maintain_coke_ovens
+description: >
+  Monitor and maintain a cluster of coke ovens by feeding inputs and clearing outputs.
+
+status: active
+origin: hand_authored
+version: 1
+
+tags:
+  - coke_oven
+  - infrastructure
+  - steam_age
+
+params:
+  max_ovens:
+    type: int
+    default: 16
+    description: Maximum number of coke ovens to service.
+  input_item:
+    type: ItemID
+    default: minecraft:coal
+    description: Fuel to insert into coke ovens.
+  collect_outputs:
+    type: bool
+    default: true
+    description: Whether to collect coke and creosote products.
+
+preconditions:
+  tech_states_any_of:
+    - steam_age
+    - lv
+  required_tools:
+    - basic_pathfinding
+  dimension_allowlist:
+    - overworld
+  semantic_tags_any_of:
+    - coke_oven_bank
+
+effects:
+  inventory_delta: {}
+  tech_delta: {}
+  tags:
+    - maintains_infra
+
+metrics:
+  success_rate: null
+  avg_cost: null
+  avg_risk: null
+  last_used_at: null
+

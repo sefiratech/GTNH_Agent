@@ -1,0 +1,90 @@
+# aesthetic megabase curriculum
+id: "aesthetic_megabase"
+name: "Aesthetic Megabase Progression"
+description: "Curriculum tailored for clean layouts, symmetry, and visually pleasing infrastructure."
+
+phases:
+
+  - id: "steam_foundation"
+    name: "Steam Foundation"
+    description: "Lay down early infrastructure with symmetry and clean spacing."
+
+    goals:
+
+      - goal_id: "plant_tree_groves"
+        goal_text: "Establish symmetrical tree groves for renewable wood."
+        phase_context: "steam_foundation"
+        required_tech_state:
+          required_active: "steam_age"
+          required_unlocked: ["coke_ovens"]
+
+        preferred_virtue_context: "diligence"
+
+        entry_conditions:
+          tech_unlocked: ["steam_age"]
+
+        exit_conditions:
+          machines_present:
+            - type: "steam_boiler"
+              min_count: 1
+
+      - goal_id: "layout_power_lanes"
+        goal_text: "Prepare aesthetic power lanes aligned to chunk boundaries."
+        phase_context: "steam_foundation"
+        required_tech_state:
+          required_active: "steam_age"
+
+        preferred_virtue_context: "order"
+
+        entry_conditions: {}
+
+        exit_conditions:
+          tech_unlocked: ["steam_machines"]
+
+    virtue_overrides:
+      order: 1.25
+      creativity: 1.1
+
+
+  - id: "lv_aesthetic_core"
+    name: "LV Aesthetic Core"
+    description: "Transition into LV while preserving grid cleanliness."
+
+    goals:
+
+      - goal_id: "lv_grid_planning"
+        goal_text: "Define the LV machine grid to maintain visual coherence."
+        phase_context: "lv_aesthetic_core"
+        required_tech_state:
+          required_active: "lv"
+
+        preferred_virtue_context: "structure"
+
+        entry_conditions:
+          tech_unlocked: ["lv_age"]
+
+        exit_conditions:
+          machines_present:
+            - type: "lv_cable_cluster"
+              min_count: 4
+
+      - goal_id: "decorate_processing_wing"
+        goal_text: "Decorate processing wing with block palettes and patterns."
+        phase_context: "lv_aesthetic_core"
+        required_tech_state:
+          required_active: "lv"
+
+        preferred_virtue_context: "beauty"
+
+        entry_conditions: {}
+
+        exit_conditions:
+          tech_unlocked: ["mv_age"]
+
+    virtue_overrides:
+      beauty: 1.25
+      harmony: 1.15
+
+
+long_horizon_projects: []
+

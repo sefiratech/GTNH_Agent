@@ -1,0 +1,60 @@
+# config/models.yaml
+# Local model definitions + role configs for LLMStack
+
+model_profiles:
+
+  gpu_small:
+    backend: "llama_cpp"
+    models:
+      primary:
+        provider: llama_cpp
+        # Your big 14B AWQ model stays here for future GPU use
+        path: "/home/knoah/.lmstudio/models/Qwen 2.5 Coder/Qwen 2.5 Coder - q5/qwen2.5-coder-14b-instruct-q5_k_m.gguf"
+        context_length: 4096
+        n_gpu_layers: 48
+        n_threads: 12
+        n_batch: 512
+        main_gpu: 0
+        tensor_split: null
+    roles:
+      plan_code:
+        # Planning is still short-form even on GPU
+        temperature_plan: 0.2
+        max_tokens_plan: 128
+        system_prompt: "Return ONLY valid JSON."
+        stop: ["}"]
+      error:
+        temperature: 0.0
+        max_tokens: 128
+        system_prompt: "Return ONLY JSON."
+        stop: ["}"]
+      scribe:
+        temperature: 0.2
+        max_tokens: 256
+        system_prompt: "Summaries ONLY in JSON."
+        stop: ["}"]
+
+  cpu_only:
+    backend: "llama_cpp"
+    models:
+      primary:
+        path: "/home/knoah/.lmstudio/models/Qwen2.5-Coder-7B-Instruct-Q4_K_M/Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf"
+        context_length: 2048
+
+    roles:
+      plan_code:
+        temperature_plan: 0.15
+        max_tokens_plan: 256      # try 256; you can go to 384 if needed
+        system_prompt: "Return ONLY valid JSON."
+        stop: []                  # let it finish the object
+      error:
+        temperature: 0.0
+        max_tokens: 128
+        system_prompt: "Return ONLY JSON."
+        stop: []
+      scribe:
+        temperature: 0.2
+        max_tokens: 128
+        system_prompt: "Summaries ONLY in JSON."
+        stop: []
+

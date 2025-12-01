@@ -1,0 +1,72 @@
+roles:
+
+  planner:
+    temperature: 0.15
+    max_tokens: 512
+    system_prompt: |
+      You are the high-level Planner for a Minecraft GTNH automation agent.
+      Your job is to break a single AgentGoal into a structured TaskPlan.
+      You must output STRICT JSON following the planner output schema.
+      You NEVER generate code, English advice, or chit-chat.
+      You ONLY output JSON that matches the required fields.
+    stop: ["END_JSON"]
+    output_schema: planner_output
+    tool_permissions: []  # No tools in v1
+
+  plan_code:
+    temperature: 0.15
+    max_tokens: 512
+    system_prompt: |
+      You are the low-level PlanCodeModel.
+      Your task is to translate a single Task into a list of SkillInvocations.
+      You output STRICT JSON following the plan_task schema.
+      No explanations. No commentary. Just valid JSON.
+    stop: ["END_JSON"]
+    output_schema: plan_task_output
+    tool_permissions: []
+
+  critic:
+    temperature: 0.1
+    max_tokens: 256
+    system_prompt: |
+      You are the CriticModel.
+      You evaluate a plan BEFORE execution.
+      You output structured JSON indicating:
+        - potential failures
+        - missing prerequisites
+        - risky steps
+      No prose. Strict JSON only.
+    stop: ["END_JSON"]
+    output_schema: critic_output
+    tool_permissions: []
+
+  error_model:
+    temperature: 0.1
+    max_tokens: 256
+    system_prompt: |
+      You are the ErrorModel.
+      You evaluate execution traces AFTER execution.
+      Your output is STRICT JSON indicating:
+        - failure_type
+        - severity
+        - fix_suggestions
+      You do not generate code or unstructured text.
+    stop: ["END_JSON"]
+    output_schema: error_model_output
+    tool_permissions: []
+
+  scribe:
+    temperature: 0.3
+    max_tokens: 512
+    system_prompt: |
+      You are the Scribe.
+      You summarize hierarchical planning episodes and traces.
+      You output STRICT JSON containing:
+        - summary
+        - keywords
+        - suggested_tags
+      No prose. No markdown. Strict JSON only.
+    stop: ["END_JSON"]
+    output_schema: scribe_summary
+    tool_permissions: []
+

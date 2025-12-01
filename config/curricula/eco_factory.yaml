@@ -1,0 +1,82 @@
+# eco factory curriculum
+id: "eco_factory"
+name: "Eco-Factory Curriculum"
+description: "Focus on sustainability, throughput, and ecologically stable automation."
+
+phases:
+
+  - id: "renewable_start"
+    name: "Renewable Start"
+    description: "Ensure all basic materials come from renewable or automated sources."
+
+    goals:
+
+      - goal_id: "automate_sapling_cycle"
+        goal_text: "Maintain renewable sapling planting cycle."
+        phase_context: "renewable_start"
+        required_tech_state:
+          required_active: "steam_age"
+
+        entry_conditions: {}
+
+        exit_conditions:
+          machines_present:
+            - type: "tree_farm"
+              min_count: 1
+
+      - goal_id: "steam_efficiency_pass"
+        goal_text: "Improve steam boiler efficiency via proper fueling rhythm."
+        phase_context: "renewable_start"
+        required_tech_state:
+          required_active: "steam_age"
+
+        entry_conditions:
+          tech_unlocked: ["steam_age"]
+
+        exit_conditions:
+          tech_unlocked: ["lv_age"]
+
+    virtue_overrides:
+      efficiency: 1.15
+      harmony: 1.1
+
+
+  - id: "lv_eco_industry"
+    name: "LV Eco-Industry"
+    description: "Transform early LV into efficient, low-waste automation."
+
+    goals:
+
+      - goal_id: "low_waste_processing"
+        goal_text: "Set up low-waste LV material processing chain."
+        phase_context: "lv_eco_industry"
+        required_tech_state:
+          required_active: "lv"
+
+        entry_conditions:
+          tech_unlocked: ["lv_age"]
+
+        exit_conditions:
+          machines_present:
+            - type: "ore_washer"
+              min_count: 1
+
+      - goal_id: "closed_loop_water"
+        goal_text: "Maintain closed-loop water supply for all LV machines."
+        phase_context: "lv_eco_industry"
+        required_tech_state:
+          required_active: "lv"
+
+        entry_conditions: {}
+
+        exit_conditions:
+          machines_present:
+            - type: "water_tank"
+              min_count: 2
+
+    virtue_overrides:
+      stewardship: 1.2
+
+
+long_horizon_projects: []
+

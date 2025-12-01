@@ -1,0 +1,12 @@
+# config/skill_packs/steam_age.yaml
+name: "steam_age"
+requires_tech_state: "steam_age"
+tags:
+  - "power"
+  - "infrastructure"
+
+skills:
+  - feed_steam_boiler
+  - maintain_coke_ovens
+  - refill_water_tanks
+
