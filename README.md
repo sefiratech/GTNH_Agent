@@ -3,6 +3,16 @@ GTNH Agent – Modular LLM-Driven Cognitive Architecture for Complex Sandbox Aut
 A fully modular, test-driven agent architecture designed to operate inside deeply complex, stateful sandbox worlds.
 Originally built to automate GregTech: New Horizons, but structured as a general cognitive framework with pluggable semantics, skills, curricula, and LLM reasoning layers.
 
+## Quick demo
+
+To verify the project runs end-to-end after cloning:
+
+
+python -m venv .venv
+source .venv/bin/activate          # or .venv\Scripts\activate on Windows
+pip install -e ".[dev]"
+python -m scripts.demo_end_to_end
+
 This project implements a complete end-to-end agent:
 
 Observation → semantic normalization
@@ -73,7 +83,7 @@ Backends are swappable via env.yaml.
 
 3. Test-Covered Architecture
 
-Over 120+ tests, including:
+Over 70+ tests, including:
 
 Core logic
 
