@@ -65,4 +65,8 @@ gtnh_recipes.generated.json
 gtnh_recipes.agent.json
 recipes.json
 
+# Obsidian config
+docs/GTNH_Agent_Obsidian_Notes/.obsidian/
+
+
 
